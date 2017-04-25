@@ -57,6 +57,14 @@ var dynamicAnimator = UIDynamicAnimator()
         
         dynamicAnimator.addBehavior(myViewDynamicBehavior)
         
+        let pushBehavior = UIPushBehavior(items: array, mode: .instantaneous)
+        
+        pushBehavior.magnitude = 1
+        
+        pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
+        
+        dynamicAnimator.addBehavior(pushBehavior)
+        
     }
     
 }
