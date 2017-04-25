@@ -19,6 +19,9 @@ var dynamicAnimator = UIDynamicAnimator()
        
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         
+        setUpViews()
+        
+       
     }
 
     func setUpViews() {
@@ -29,16 +32,32 @@ var dynamicAnimator = UIDynamicAnimator()
         
         view.addSubview(blueSquare)
         
-        let redSquare = UIView(frame: CGRect(x: 150, y: 100, width: 50, height: 50))
+        let redSquare = UIView(frame: CGRect(x: 300, y: 300, width: 50, height: 50))
         
-        redSquare.backgroundColor = UIColor.blue
+        redSquare.backgroundColor = UIColor.red
         
         view.addSubview(redSquare)
+        
+        addDynamicAnimations(array: [blueSquare,redSquare])
 
         
     }
 
-    
+    func addDynamicAnimations(array: [UIView]){
+        
+        let myViewDynamicBehavior = UIDynamicItemBehavior(items: array)
+        
+        myViewDynamicBehavior.density = 1
+        
+        myViewDynamicBehavior.friction = 0
+        
+        myViewDynamicBehavior.elasticity = 1
+        
+        myViewDynamicBehavior.resistance = 0
+        
+        dynamicAnimator.addBehavior(myViewDynamicBehavior)
+        
+    }
     
 }
 
